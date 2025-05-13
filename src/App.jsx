@@ -1,22 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import "./App.css";
 import SearchForm from "./components/SearchForm";
 import RecipeList from "./components/RecipeList";
 import MealModal from "./components/MealModal";
+import { FavoriteContext } from "./contexts/FavoritesContext";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [meals, setMeals] = useState([]);
   const [selectedMeal, setSelectedMeal] = useState(null);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
-  const [favorites, setFavorites] = useState(() => {
-    const saved = localStorage.getItem("favorites");
-    return saved ? JSON.parse(saved) : [];
-  });
 
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
+  // hook, moved logic to other file
+  const { favorites } = useContext(FavoriteContext);
 
   const handleSearch = async () => {
     const response = await fetch(
@@ -28,20 +24,6 @@ function App() {
       a.strMeal.localeCompare(b.strMeal),
     );
     setMeals(sorted);
-  };
-
-  const toggleFavorite = (meal) => {
-    const isFav = favorites.some((i) => i.idMeal === meal.idMeal);
-
-    const updated = isFav
-      ? favorites.filter((i) => i.idMeal !== meal.idMeal)
-      : [...favorites, meal];
-
-    const sorted = [...updated].sort((a, b) =>
-      a.strMeal.localeCompare(b.strMeal),
-    );
-
-    setFavorites(sorted);
   };
 
   const visibleMeals = showFavoritesOnly ? favorites : meals;
@@ -66,8 +48,6 @@ function App() {
         meals={visibleMeals}
         selectedMeal={selectedMeal}
         setSelectedMeal={setSelectedMeal}
-        toggleFavorite={toggleFavorite}
-        favorites={favorites}
       />
       {selectedMeal && (
         <>

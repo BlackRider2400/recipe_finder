@@ -1,9 +1,14 @@
-function MealItem({ meal, setSelectedMeal, toggleFavorite, isFavorite }) {
+import { useContext } from "react";
+import { FavoriteContext } from "../contexts/FavoritesContext";
+
+function MealItem({ meal, setSelectedMeal }) {
+  const { toggleFavorite, isFavorite } = useContext(FavoriteContext);
+
   return (
     <div className="recipe-card" key={meal.idMeal}>
       <h3>{meal.strMeal}</h3>
       <button className="favorite-btn" onClick={() => toggleFavorite(meal)}>
-        {isFavorite ? "⭐" : "☆"}
+        {isFavorite(meal) ? "⭐" : "☆"}
       </button>
       <img
         src={meal.strMealThumb}
