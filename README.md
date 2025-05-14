@@ -14,7 +14,6 @@ A modern and responsive recipe search app built with **React** and **Vite**, fea
 ## 🚀 Live demo
 
 📍 [mylovelyserver.fun/recipe_finder/](https://mylovelyserver.fun/recipe_finder/)
-_(replace with your actual link)_
 
 ---
 
