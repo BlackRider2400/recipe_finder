@@ -1,12 +1,45 @@
-# React + Vite
+# 🍽️ Recipe Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive recipe search app built with **React** and **Vite**, featuring:
 
-Currently, two official plugins are available:
+- 🔍 Live meal search via [TheMealDB API](https://www.themealdb.com/)
+- ⭐ Add/remove favorite meals (stored in localStorage)
+- 💾 Offline support & PWA installability
+- 📱 Fully responsive mobile-friendly design
+- ⚙️ Custom modal with animation
+- 🌐 Deployed on Apache2 with SSL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Live demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📍 [mylovelyserver.fun/recipe_finder/](https://mylovelyserver.fun/recipe_finder/)
+_(replace with your actual link)_
+
+---
+
+## 🔧 Tech Stack
+
+- React + Vite
+- Context API for global favorites
+- PWA with `vite-plugin-pwa`
+- Custom CSS
+- Deployed via Apache2
+
+---
+
+## 📦 Installation
+
+```bash
+# Clone the project
+git clone https://github.com/BlackRider2400/recipe_finder.git
+cd recipe-finder
+
+# Install dependencies
+npm install
+
+# Run in development
+npm run dev
+
+# Build for production
+npm run build
